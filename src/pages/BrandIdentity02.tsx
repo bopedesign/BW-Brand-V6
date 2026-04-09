@@ -260,6 +260,38 @@ export default function BrandIdentity02() {
 
       <div className="pt-[57px] pb-0 px-0 w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 print:grid-cols-4 lg:grid-cols-4 gap-[1px] bg-white">
+          <div className="md:col-span-2 lg:col-span-4 print:col-span-4 h-[calc(100vh-57px)] print:h-auto print:min-h-0 print:py-24 bg-white flex items-center justify-center p-12 md:p-24">
+            <img
+              src="/03-med-logo.png"
+              alt="Concept 02 intro logo"
+              className="block w-full max-w-4xl h-auto object-contain"
+            />
+          </div>
+
+          <div className="md:col-span-2 lg:col-span-4 print:col-span-4 bg-[#faf9f4] overflow-hidden">
+            <img
+              src="/03-variations.png"
+              alt="Concept 02 logo variations"
+              className="block w-full h-auto"
+            />
+          </div>
+
+          <div className="md:col-span-2 lg:col-span-4 print:col-span-4 bg-[#faf9f4] overflow-hidden">
+            <img
+              src="/03-stationary.png"
+              alt="Concept 02 brand stationary"
+              className="block w-full h-auto"
+            />
+          </div>
+
+          <div className="md:col-span-2 lg:col-span-4 print:col-span-4 bg-[#faf9f4] overflow-hidden">
+            <img
+              src="/02-additional-mocks.png"
+              alt="Concept 02 additional mockups"
+              className="block w-full h-auto"
+            />
+          </div>
+
           <div className="md:col-span-2 lg:col-span-4 print:col-span-4 h-[calc(100vh-57px)] print:h-auto print:min-h-0 print:py-24 bg-white flex flex-col items-center justify-center relative overflow-hidden p-12 md:p-24">
             <img
               src="/01-bw-home-2.png"
@@ -277,22 +309,6 @@ export default function BrandIdentity02() {
               src="/03-light-logo.png"
               alt="Concept 02 logo"
               className="relative z-10 w-full max-w-3xl max-h-full object-contain drop-shadow-2xl mt-12"
-            />
-          </div>
-
-          <div className="md:col-span-2 lg:col-span-4 print:col-span-4 bg-[#faf9f4] overflow-hidden">
-            <img
-              src="/03-variations.png"
-              alt="Concept 02 logo variations"
-              className="block w-full h-auto"
-            />
-          </div>
-
-          <div className="md:col-span-2 lg:col-span-4 print:col-span-4 bg-[#faf9f4] overflow-hidden">
-            <img
-              src="/03-stationary.png"
-              alt="Concept 02 brand stationary"
-              className="block w-full h-auto"
             />
           </div>
         </div>
