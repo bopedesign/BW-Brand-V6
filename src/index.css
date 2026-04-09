@@ -15,6 +15,43 @@ body {
   font-family: var(--font-sans);
 }
 
+.discreet-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 1px;
+  border-radius: 999px;
+  background: rgba(38, 38, 36, 0.18);
+  outline: none;
+}
+
+.discreet-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  border: 1px solid rgba(38, 38, 36, 0.45);
+  border-radius: 999px;
+  background: rgba(250, 249, 244, 0.95);
+  box-shadow: 0 0 0 1px rgba(38, 38, 36, 0.04);
+  cursor: pointer;
+}
+
+.discreet-slider::-moz-range-track {
+  height: 1px;
+  border-radius: 999px;
+  background: rgba(38, 38, 36, 0.18);
+}
+
+.discreet-slider::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  border: 1px solid rgba(38, 38, 36, 0.45);
+  border-radius: 999px;
+  background: rgba(250, 249, 244, 0.95);
+  box-shadow: 0 0 0 1px rgba(38, 38, 36, 0.04);
+  cursor: pointer;
+}
+
 @media print {
   html, body {
     -webkit-print-color-adjust: exact !important;

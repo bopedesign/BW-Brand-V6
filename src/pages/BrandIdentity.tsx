@@ -30,6 +30,7 @@ export default function BrandIdentity() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCompetitorSidebarOpen, setIsCompetitorSidebarOpen] = useState(false);
   const [isVibeOpen, setIsVibeOpen] = useState(false);
+  const [heroOverlayOpacity, setHeroOverlayOpacity] = useState(0.5);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [hasPlayed, setHasPlayed] = useState(false);
@@ -91,6 +92,21 @@ export default function BrandIdentity() {
           Branding
         </Link>
         <div className="flex items-center gap-6">
+          <label className="hidden md:flex items-center gap-3 opacity-60 hover:opacity-100 transition-opacity">
+            <span className="text-[10px] font-semibold tracking-[0.24em] uppercase whitespace-nowrap">
+              Overlay
+            </span>
+            <input
+              type="range"
+              min="0"
+              max="80"
+              step="1"
+              value={Math.round(heroOverlayOpacity * 100)}
+              onChange={(event) => setHeroOverlayOpacity(Number(event.target.value) / 100)}
+              className="discreet-slider w-20"
+              aria-label="Hero background overlay opacity"
+            />
+          </label>
           <button 
             onClick={() => setIsVibeOpen(!isVibeOpen)}
             className={`transition-colors hidden sm:flex items-center justify-center ${isVibeOpen ? 'text-[#d97757]' : 'hover:text-[#d97757]'}`}
@@ -314,7 +330,10 @@ export default function BrandIdentity() {
               alt="Bailey Weiler Home"
               className="absolute inset-0 w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-[#1b1817]/50 pointer-events-none"></div>
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{ backgroundColor: `rgba(27, 24, 23, ${heroOverlayOpacity})` }}
+            ></div>
             <img 
               src="/01-primary-white.svg" 
               alt="Primary Logo" 
