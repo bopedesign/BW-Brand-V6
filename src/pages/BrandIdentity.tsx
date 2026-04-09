@@ -87,6 +87,8 @@ export default function BrandIdentity() {
             </button>
             <div className="absolute top-full right-0 mt-2 w-48 bg-white shadow-lg rounded-lg border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 flex flex-col overflow-hidden">
               <Link to="/identity" className="px-4 py-3 text-sm font-medium hover:bg-gray-50 transition-colors">01</Link>
+              <Link to="/identity/02" className="px-4 py-3 text-sm font-medium hover:bg-gray-50 transition-colors">02</Link>
+              <Link to="/identity/03" className="px-4 py-3 text-sm font-medium hover:bg-gray-50 transition-colors">03</Link>
             </div>
           </div>
           <button 
@@ -102,7 +104,7 @@ export default function BrandIdentity() {
 
       {/* Vibe & Feel Dropdown Overlay */}
       <div 
-        className={`fixed inset-0 bg-black/60 z-30 transition-opacity duration-300 ${isVibeOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`} 
+        className={`fixed inset-0 bg-transparent z-30 transition-opacity duration-300 ${isVibeOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`} 
         onClick={() => setIsVibeOpen(false)} 
       />
 
@@ -221,15 +223,14 @@ export default function BrandIdentity() {
             </Link>
           </div>
 
-          {/* Brand Identity */}
+          {/* Logo Concepts */}
           <div>
-            <Link 
-              to="/identity" 
-              onClick={() => setIsMenuOpen(false)} 
-              className="text-[14px] font-bold text-[#d97757] hover:text-white transition-colors uppercase tracking-widest"
-            >
-              Logo Concept 01
-            </Link>
+            <h3 className="text-[14px] font-bold text-[#d97757] mb-4 uppercase tracking-widest">Logo Concepts</h3>
+            <ul className="space-y-3">
+              <li><Link to="/identity" onClick={() => setIsMenuOpen(false)} className="text-[18px] font-light hover:text-[#d97757] transition-colors">Concept 01</Link></li>
+              <li><Link to="/identity/02" onClick={() => setIsMenuOpen(false)} className="text-[18px] font-light hover:text-[#d97757] transition-colors">Concept 02</Link></li>
+              <li><Link to="/identity/03" onClick={() => setIsMenuOpen(false)} className="text-[18px] font-light hover:text-[#d97757] transition-colors">Concept 03</Link></li>
+            </ul>
           </div>
 
           {/* Core Identity */}
@@ -275,25 +276,36 @@ export default function BrandIdentity() {
       <div className="pt-[57px] pb-0 px-0 w-full">
         {/* Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 print:grid-cols-4 lg:grid-cols-4 gap-[1px] bg-white">
-          
-          {/* Logo - Hero / Full Width & 2x Taller */}
-          <div className="md:col-span-2 lg:col-span-4 print:col-span-4 h-[calc(100vh-57px)] print:h-auto print:min-h-0 print:py-24 bg-white flex flex-col items-center justify-center relative overflow-hidden p-12 md:p-24">
+
+          {/* Intro Logo Section */}
+          <div className="md:col-span-2 lg:col-span-4 print:col-span-4 h-[calc(100vh-57px)] print:h-auto print:min-h-0 print:py-24 bg-white flex items-center justify-center p-12 md:p-24">
             <img
-              src="/Bailey-Weiler-home--lakeside.jpg"
-              alt="Bailey Weiler Home"
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-            <div
-              className="absolute inset-0 pointer-events-none"
-              style={{ backgroundColor: `rgba(27, 24, 23, ${heroOverlayOpacity})` }}
-            ></div>
-            <img 
-              src="/01-light-logo.png" 
-              alt="Primary Logo" 
-              className="relative z-10 w-full max-w-3xl max-h-full object-contain drop-shadow-2xl mt-12" 
+              src="/01-dark-logo-w-homes-gold.png"
+              alt="Bailey Weiler logo with homes"
+              className="block w-full max-w-4xl h-auto object-contain"
             />
           </div>
 
+          {/* Split Logo Section */}
+          <div className="md:col-span-2 lg:col-span-4 print:col-span-4 h-[calc(100vh-57px)] print:h-auto print:min-h-0 overflow-hidden">
+            <div className="h-full flex flex-col md:flex-row">
+              <div className="w-full md:w-1/2 h-1/2 md:h-full bg-[#1b1817] flex items-center justify-center p-12 md:p-20">
+                <img
+                  src="/01-light-logo-stacked.png"
+                  alt="Light stacked logo"
+                  className="block w-full max-w-md h-auto object-contain"
+                />
+              </div>
+              <div className="w-full md:w-1/2 h-1/2 md:h-full bg-white flex items-center justify-center p-12 md:p-20">
+                <img
+                  src="/01-dark-logo-stacked.png"
+                  alt="Dark stacked logo"
+                  className="block w-full max-w-md h-auto object-contain"
+                />
+              </div>
+            </div>
+          </div>
+          
           {/* Full Width Variations */}
           <div className="md:col-span-2 lg:col-span-4 print:col-span-4 bg-[#faf9f4] overflow-hidden">
             <img
@@ -318,6 +330,24 @@ export default function BrandIdentity() {
               src="/01-additional-mocks.png"
               alt="Additional logo mockups"
               className="block w-full h-auto"
+            />
+          </div>
+
+          {/* Logo - Hero / Full Width & 2x Taller */}
+          <div className="md:col-span-2 lg:col-span-4 print:col-span-4 h-[calc(100vh-57px)] print:h-auto print:min-h-0 print:py-24 bg-white flex flex-col items-center justify-center relative overflow-hidden p-12 md:p-24">
+            <img
+              src="/Bailey-Weiler-home--lakeside.jpg"
+              alt="Bailey Weiler Home"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{ backgroundColor: `rgba(27, 24, 23, ${heroOverlayOpacity})` }}
+            ></div>
+            <img 
+              src="/01-light-logo.png" 
+              alt="Primary Logo" 
+              className="relative z-10 w-full max-w-3xl max-h-full object-contain drop-shadow-2xl mt-12" 
             />
           </div>
         </div>

@@ -127,6 +127,8 @@ export default function Process() {
             </button>
             <div className="absolute top-full right-0 mt-2 w-48 bg-white shadow-lg rounded-lg border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 flex flex-col overflow-hidden">
               <Link to="/identity" className="px-4 py-3 text-sm font-medium hover:bg-gray-50 transition-colors text-left">01</Link>
+              <Link to="/identity/02" className="px-4 py-3 text-sm font-medium hover:bg-gray-50 transition-colors text-left">02</Link>
+              <Link to="/identity/03" className="px-4 py-3 text-sm font-medium hover:bg-gray-50 transition-colors text-left">03</Link>
             </div>
           </div>
           <button 
@@ -141,7 +143,7 @@ export default function Process() {
 
       {/* Vibe & Feel Dropdown Overlay */}
       <div 
-        className={`fixed inset-0 bg-black/60 z-30 transition-opacity duration-300 ${isVibeOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`} 
+        className={`fixed inset-0 bg-transparent z-30 transition-opacity duration-300 ${isVibeOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`} 
         onClick={() => setIsVibeOpen(false)} 
       />
 
@@ -257,13 +259,12 @@ export default function Process() {
             </Link>
           </div>
           <div>
-            <Link 
-              to="/identity" 
-              onClick={() => setIsMenuOpen(false)} 
-              className="text-[14px] font-bold text-[#d97757] hover:text-white transition-colors uppercase tracking-widest"
-            >
-              Logo Concept 01
-            </Link>
+            <h3 className="text-[14px] font-bold text-[#d97757] mb-4 uppercase tracking-widest">Logo Concepts</h3>
+            <ul className="space-y-3">
+              <li><Link to="/identity" onClick={() => setIsMenuOpen(false)} className="text-[18px] font-light hover:text-[#d97757] transition-colors">Concept 01</Link></li>
+              <li><Link to="/identity/02" onClick={() => setIsMenuOpen(false)} className="text-[18px] font-light hover:text-[#d97757] transition-colors">Concept 02</Link></li>
+              <li><Link to="/identity/03" onClick={() => setIsMenuOpen(false)} className="text-[18px] font-light hover:text-[#d97757] transition-colors">Concept 03</Link></li>
+            </ul>
           </div>
           <div>
             <Link 
@@ -340,6 +341,28 @@ export default function Process() {
                 </div>
               </div>
             ))}
+          </div>
+
+          <div className="mt-16 bg-white overflow-hidden shadow-sm">
+            <img
+              src="/01-color-homes.png"
+              alt="Color palette homes"
+              className="block w-full h-auto"
+            />
+          </div>
+        </section>
+
+        <section className="mt-32">
+          <div className="mb-16 border-b border-black/10 pb-8">
+            <h2 className="text-sm font-bold tracking-[0.2em] uppercase text-[#d97757]">Letter Exploration</h2>
+          </div>
+
+          <div className="bg-white overflow-hidden shadow-sm">
+            <img
+              src="/01-letters.png"
+              alt="Bailey Weiler letter exploration"
+              className="block w-full h-auto"
+            />
           </div>
         </section>
 
