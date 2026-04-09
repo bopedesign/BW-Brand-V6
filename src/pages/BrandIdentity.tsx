@@ -341,6 +341,15 @@ export default function BrandIdentity() {
             />
           </div>
 
+          {/* Full Width Variations */}
+          <div className="md:col-span-2 lg:col-span-4 print:col-span-4 bg-[#faf9f4] overflow-hidden">
+            <img
+              src="/01-variations.png"
+              alt="Logo variations"
+              className="block w-full h-auto"
+            />
+          </div>
+
           {/* Dark Background */}
           <div className="aspect-square bg-[#292623] rounded-none p-8 flex flex-col items-center justify-center relative overflow-hidden group">
             <img src="/01-light-vertical.png" alt="Logo on Dark" className="w-full h-full object-contain p-12" />
