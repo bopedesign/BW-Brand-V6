@@ -310,7 +310,7 @@ export default function BrandIdentity() {
           {/* Logo - Hero / Full Width & 2x Taller */}
           <div className="md:col-span-2 lg:col-span-4 print:col-span-4 h-[calc(100vh-57px)] print:h-auto print:min-h-0 print:py-24 bg-white flex flex-col items-center justify-center relative overflow-hidden p-12 md:p-24">
             <img
-              src="/Bailey-Weiler-home--lakeside.jpg"
+              src="/01-bw-home-2.png"
               alt="Bailey Weiler Home"
               className="absolute inset-0 w-full h-full object-cover"
             />
