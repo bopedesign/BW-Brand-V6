@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Menu, X, ChevronDown, Play, Pause, Sparkles, Users } from 'lucide-react';
+import { Menu, X, ChevronDown, Sparkles, Users } from 'lucide-react';
 
 const competitorLogos = [
   "com-Diyanni.png",
@@ -31,53 +31,6 @@ export default function BrandIdentity() {
   const [isCompetitorSidebarOpen, setIsCompetitorSidebarOpen] = useState(false);
   const [isVibeOpen, setIsVibeOpen] = useState(false);
   const [heroOverlayOpacity, setHeroOverlayOpacity] = useState(0.5);
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [hasPlayed, setHasPlayed] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !hasPlayed) {
-            if (videoRef.current) {
-              videoRef.current.play().catch(() => {
-                // Handle autoplay block
-              });
-              setIsPlaying(true);
-              setHasPlayed(true);
-            }
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-
-    if (videoRef.current) {
-      observer.observe(videoRef.current);
-    }
-
-    return () => {
-      if (videoRef.current) {
-        observer.unobserve(videoRef.current);
-      }
-    };
-  }, [hasPlayed]);
-
-  const togglePlay = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
-    }
-  };
-
-  const handleVideoEnded = () => {
-    setIsPlaying(false);
-  };
 
   return (
     <div className="min-h-screen print:min-h-0 bg-[#ccbfb2] font-sans text-[#292623] selection:bg-[#262624] selection:text-[#faf9f4]">
@@ -326,7 +279,7 @@ export default function BrandIdentity() {
           {/* Logo - Hero / Full Width & 2x Taller */}
           <div className="md:col-span-2 lg:col-span-4 print:col-span-4 h-[calc(100vh-57px)] print:h-auto print:min-h-0 print:py-24 bg-white flex flex-col items-center justify-center relative overflow-hidden p-12 md:p-24">
             <img
-              src="/01-bw-home-2.png"
+              src="/Bailey-Weiler-home--lakeside.jpg"
               alt="Bailey Weiler Home"
               className="absolute inset-0 w-full h-full object-cover"
             />
@@ -335,7 +288,7 @@ export default function BrandIdentity() {
               style={{ backgroundColor: `rgba(27, 24, 23, ${heroOverlayOpacity})` }}
             ></div>
             <img 
-              src="/01-primary-white.svg" 
+              src="/01-light-logo.png" 
               alt="Primary Logo" 
               className="relative z-10 w-full max-w-3xl max-h-full object-contain drop-shadow-2xl mt-12" 
             />
@@ -350,218 +303,23 @@ export default function BrandIdentity() {
             />
           </div>
 
-          {/* Dark Background */}
-          <div className="aspect-square bg-[#292623] rounded-none p-8 flex flex-col items-center justify-center relative overflow-hidden group">
-            <img src="/01-light-vertical.png" alt="Logo on Dark" className="w-full h-full object-contain p-12" />
-          </div>
-
-          {/* Light Background */}
-          <div className="aspect-square bg-[#fafaf9] rounded-none p-8 flex flex-col items-center justify-center relative overflow-hidden group">
-            <img src="/01-dark-primary.png" alt="Logo on Light" className="w-full h-full object-contain p-12" />
-          </div>
-
-          {/* Dark background with only logo symbol */}
-          <div className="aspect-square bg-[#1b1817] rounded-none relative overflow-hidden group flex items-center justify-center">
-            <img 
-              src="/01-symbol.png" 
-              alt="Symbol Only" 
-              className="w-full h-full object-contain p-24"
+          {/* Full Width Stationary */}
+          <div className="md:col-span-2 lg:col-span-4 print:col-span-4 bg-[#faf9f4] overflow-hidden">
+            <img
+              src="/01-stationary.png"
+              alt="Brand stationary"
+              className="block w-full h-auto"
             />
           </div>
 
-          {/* Accent Background */}
-          <div className="aspect-square bg-[#8e7250] rounded-none relative overflow-hidden group flex items-center justify-center">
-            <img 
-              src="/01-primary-white.svg" 
-              alt="Logo on Accent" 
-              className="w-full h-full object-contain p-12"
+          {/* Full Width Additional Mocks */}
+          <div className="md:col-span-2 lg:col-span-4 print:col-span-4 bg-[#faf9f4] overflow-hidden">
+            <img
+              src="/01-additional-mocks.png"
+              alt="Additional logo mockups"
+              className="block w-full h-auto"
             />
           </div>
-
-          {/* Color Palette */}
-          <div className="md:col-span-2 lg:col-span-4 print:col-span-4 bg-white rounded-none p-0 flex flex-col">
-            <div className="grid grid-cols-1 md:grid-cols-2 print:grid-cols-4 lg:grid-cols-4 h-full min-h-[500px]">
-              {/* Color 1 */}
-              <div className="flex flex-col h-full">
-                <div className="flex-1 bg-[#1b1817] p-8 md:p-12 text-white flex flex-col justify-between min-h-[250px]">
-                  <div className="font-sans text-sm tracking-widest uppercase">Very Dark</div>
-                  <div className="font-mono text-sm opacity-80">#1B1817</div>
-                </div>
-                <div className="h-12 md:h-16 bg-[#1b1817]/80"></div>
-                <div className="h-12 md:h-16 bg-[#1b1817]/60"></div>
-                <div className="h-12 md:h-16 bg-[#1b1817]/40"></div>
-                <div className="h-12 md:h-16 bg-[#1b1817]/20"></div>
-                <div className="h-12 md:h-16 bg-[#1b1817]/10"></div>
-              </div>
-              
-              {/* Color 2 */}
-              <div className="flex flex-col h-full">
-                <div className="flex-1 bg-[#292623] p-8 md:p-12 text-white flex flex-col justify-between min-h-[250px]">
-                  <div className="font-sans text-sm tracking-widest uppercase">Dark</div>
-                  <div className="font-mono text-sm opacity-80">#292623</div>
-                </div>
-                <div className="h-12 md:h-16 bg-[#292623]/80"></div>
-                <div className="h-12 md:h-16 bg-[#292623]/60"></div>
-                <div className="h-12 md:h-16 bg-[#292623]/40"></div>
-                <div className="h-12 md:h-16 bg-[#292623]/20"></div>
-                <div className="h-12 md:h-16 bg-[#292623]/10"></div>
-              </div>
-
-              {/* Color 3 */}
-              <div className="flex flex-col h-full">
-                <div className="flex-1 bg-[#8e7250] p-8 md:p-12 text-white flex flex-col justify-between min-h-[250px]">
-                  <div className="font-sans text-sm tracking-widest uppercase">Accent</div>
-                  <div className="font-mono text-sm opacity-80">#8E7250</div>
-                </div>
-                <div className="h-12 md:h-16 bg-[#8e7250]/80"></div>
-                <div className="h-12 md:h-16 bg-[#8e7250]/60"></div>
-                <div className="h-12 md:h-16 bg-[#8e7250]/40"></div>
-                <div className="h-12 md:h-16 bg-[#8e7250]/20"></div>
-                <div className="h-12 md:h-16 bg-[#8e7250]/10"></div>
-              </div>
-
-              {/* Color 4 */}
-              <div className="flex flex-col h-full">
-                <div className="flex-1 bg-[#ccbfb2] p-8 md:p-12 text-[#1b1817] flex flex-col justify-between min-h-[250px]">
-                  <div className="font-sans text-sm tracking-widest uppercase">Light Brown</div>
-                  <div className="font-mono text-sm opacity-80">#CCBFB2</div>
-                </div>
-                <div className="h-12 md:h-16 bg-[#ccbfb2]/80"></div>
-                <div className="h-12 md:h-16 bg-[#ccbfb2]/60"></div>
-                <div className="h-12 md:h-16 bg-[#ccbfb2]/40"></div>
-                <div className="h-12 md:h-16 bg-[#ccbfb2]/20"></div>
-                <div className="h-12 md:h-16 bg-[#ccbfb2]/10"></div>
-              </div>
-            </div>
-          </div>
-
-          {/* Typography Grouping */}
-          <div className="md:col-span-2 lg:col-span-2 print:col-span-2 md:row-span-2 lg:row-span-2 print:row-span-2 aspect-square lg:aspect-auto print:aspect-auto bg-[#1b1817] rounded-none p-8 md:p-16 flex flex-col relative overflow-hidden">
-            
-            <div className="mt-4 flex flex-col h-full">
-              <div className="text-[#8e7250] text-sm font-bold tracking-[0.15em] uppercase mb-4">Our Legacy</div>
-              <h2 className="font-serif text-5xl md:text-6xl lg:text-[64px] text-white mb-6 leading-tight">A Trust Foundation</h2>
-              <p className="text-[#d1d1d1] font-sans text-lg max-w-xl mb-6 leading-relaxed font-light">
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut
-              </p>
-              
-              <div className="flex flex-wrap gap-4 mb-8">
-                <button className="px-8 py-3.5 bg-[#8e7250] text-[#1b1817] rounded-full font-medium flex items-center gap-3 hover:bg-[#7a6143] transition-colors text-sm">
-                  Our Legacy <ArrowRight className="w-4 h-4" />
-                </button>
-                <button className="px-8 py-3.5 bg-transparent border border-white/20 text-white rounded-full font-medium hover:border-white/40 transition-colors text-sm">
-                  Our Legacy
-                </button>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-12 md:gap-16 mb-6">
-                <div>
-                  <div className="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center mb-6">
-                    <span className="font-serif italic text-3xl text-white/80">1.</span>
-                  </div>
-                  <h3 className="font-serif text-3xl md:text-4xl text-white mb-4">Uncompromising</h3>
-                  <p className="text-[#d1d1d1] font-sans text-lg leading-relaxed font-light">
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut
-                  </p>
-                </div>
-                <div>
-                  <div className="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center mb-6">
-                    <span className="font-serif italic text-3xl text-white/80">2.</span>
-                  </div>
-                  <h3 className="font-serif text-3xl md:text-4xl text-white mb-4">Uncompromising</h3>
-                  <p className="text-[#d1d1d1] font-sans text-lg leading-relaxed font-light">
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut
-                  </p>
-                </div>
-              </div>
-              
-              <div className="mt-auto pt-8 border-t border-white/10 w-full"></div>
-            </div>
-          </div>
-
-          {/* Block with email signature */}
-          <div className="aspect-square bg-[#fafaf9] rounded-none relative overflow-hidden group flex items-center justify-center">
-            <img 
-              src="/01-sig2.png" 
-              alt="Email Signature" 
-              className="w-full h-full object-contain p-8"
-            />
-          </div>
-
-          {/* Block with brand identity pattern */}
-          <div className="aspect-square bg-[#292623] rounded-none relative overflow-hidden group">
-            <img 
-              src="/01-pattern.png" 
-              alt="Brand Pattern" 
-              className="w-full h-full object-cover"
-            />
-          </div>
-
-          {/* Block with business card mockup */}
-          <div className="md:row-span-2 lg:row-span-2 print:row-span-2 aspect-square md:aspect-[1/2] lg:aspect-[1/2] print:aspect-[1/2] bg-[#fafaf9] rounded-none relative overflow-hidden group flex items-center justify-center">
-            <img 
-              src="/01-card2.svg" 
-              alt="Business Card Mockup" 
-              className="w-full h-full object-contain p-8"
-            />
-          </div>
-
-          {/* Block with bag mockup */}
-          <div className="md:row-span-2 lg:row-span-2 print:row-span-2 aspect-square md:aspect-[1/2] lg:aspect-[1/2] print:aspect-[1/2] bg-[#fafaf9] rounded-none relative overflow-hidden group">
-            <img 
-              src="/01-bag2.png" 
-              alt="Bag Mockup" 
-              className="w-full h-full object-cover"
-            />
-          </div>
-
-          {/* Block with book mockup */}
-          <div className="aspect-square bg-[#fafaf9] rounded-none relative overflow-hidden group">
-            <img 
-              src="/01-book.png" 
-              alt="Brand Book" 
-              className="w-full h-full object-cover"
-            />
-          </div>
-
-          {/* Block with logoed polo */}
-          <div className="aspect-square bg-[#fafaf9] rounded-none relative overflow-hidden group">
-            <img 
-              src="/01-polo2.png" 
-              alt="Logoed Polo" 
-              className="w-full h-full object-cover"
-            />
-          </div>
-
-          {/* Block with logoed hat */}
-          <div className="aspect-square bg-[#fafaf9] rounded-none relative overflow-hidden group">
-            <img 
-              src="/01-hat.png" 
-              alt="Logoed Hat" 
-              className="w-full h-full object-cover"
-            />
-          </div>
-
-          {/* Video Block */}
-          <div className="lg:col-span-2 print:col-span-2 aspect-square lg:aspect-[2/1] print:aspect-[2/1] bg-[#1b1817] rounded-none relative overflow-hidden group">
-            <video 
-              ref={videoRef}
-              src="/u4146995238_httpss.mj.runGcaZ8g9G7bs_seamless_transformation__81320b42-d5eb-4cd8-ba5e-f5aadbf52d20_1.mp4" 
-              playsInline
-              muted
-              onEnded={handleVideoEnded}
-              className="w-full h-full object-cover"
-            />
-            <button 
-              onClick={togglePlay}
-              className="absolute bottom-6 right-6 z-20 w-14 h-14 bg-black/40 hover:bg-black/70 text-white rounded-full flex items-center justify-center backdrop-blur-md transition-all border border-white/20 shadow-lg"
-              aria-label={isPlaying ? "Pause video" : "Play video"}
-            >
-              {isPlaying ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6 ml-1" />}
-            </button>
-          </div>
-          
-          <div className="hidden lg:block print:block lg:col-span-2 print:col-span-2 bg-[#fafaf9]"></div>
         </div>
       </div>
     </div>
